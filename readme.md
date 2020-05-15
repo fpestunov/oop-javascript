@@ -62,9 +62,77 @@ element.render();
 
 ```
 
-# 2. Setting Up Envirement
+## 2. Setting Up Envirement
 
 - VSCode: live server extensin
 - `!`
 - `open with live server`
 
+## 3. Objects
+17:15
+
+```js
+const circle1 = {
+  radius: 1,
+  location: {
+    x: 1,
+    y: 1
+  },
+  draw: function() {}
+}
+
+const circle2 = {
+  radius: 1,
+  location: {
+    x: 3,
+    y: 3
+  },
+  draw: function() {}
+}
+
+// not good: dublicate methods
+```
+
+**Refactor. Two Way**
+
+**1. Meet Factory Function**
+
+Many dev like this.
+
+```js
+function createCircle(radius) {
+  return {
+    radius, // ES6 feat, instead `raduis: radius`
+    draw: function() {}
+  }
+}
+
+const circle = createCircle(1)
+circle.draw()
+```
+
+**2. Constructor Function**
+
+C# like this way
+
+`new` operator
+- new make {}
+- automatic return
+
+```js
+function Circle() {
+  console.log(this)
+}
+const c1 = Circle(); // Window
+const c2 =new Circle(); // Circle
+```
+
+```js
+  function Circle(radius) {
+    this.radius = radius;
+    this.draw = function() {
+      console.log('draw')
+    }
+  }
+  const c =new Circle();
+```
