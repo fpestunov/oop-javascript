@@ -136,3 +136,10 @@ const c2 =new Circle(); // Circle
   }
   const c =new Circle();
 ```
+
+### Constructor Property
+23:32
+
+
+### Challenge. StopWatch
+
