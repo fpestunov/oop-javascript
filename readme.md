@@ -196,6 +196,30 @@ const c = Circle(1); // this === window
 Circle.call(window, 1); // equal
 ```
 
+## Value and references types
+
+const valueTypes = ['Number','String','Boolean','Symbol','undefined','null']
+
+const refTypes = ['Object','Function','Array']
+
+```js
+let x = 10;
+let y = x;
+x = 20; // y = ?
+
+let x = { value: 10 };
+let y = x;
+x.value = 20; // y = ?
+
+let number = 10; // and try with object
+
+function increment(number) {
+  number++;
+}
+increment(number);
+console.log(number); // ?
+```
+
 ### Challenge. StopWatch
 
 ```js
