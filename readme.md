@@ -262,6 +262,25 @@ if ("radius" in circle) {
 }
 ```
 
+### Abstraction
+
+Hide ditails. Show essentials. Its private props and methods.
+
+Scope (temporary, die after) vs Closure (stay alive in memory).
+
+```js
+function Circle(radius) {
+  let color = "red"; // private
+  const findCenter = function () {}; // private
+
+  this.radius = radius;
+  this.draw = function () {
+    let x, y; // closure
+    console.log("draw");
+  };
+}
+```
+
 ### Challenge. StopWatch
 
 ```js
