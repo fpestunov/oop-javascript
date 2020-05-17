@@ -232,6 +232,36 @@ delete user.password;
 delete user["one-two-three"];
 ```
 
+### Enumerating Properties
+
+- `for-in`
+- `Object.keys`
+- `if-in`
+
+```js
+function Circle(radius) {
+  this.radius = radius;
+  this.draw = function () {
+    console.log("draw");
+  };
+}
+
+const circle = new Circle(5);
+
+for (let key in circle) {
+  if (typeof circle[key] !== "function") {
+    console.log(key, circle[key]);
+  }
+}
+
+const keys = Object.keys(circle);
+console.log(keys);
+
+if ("radius" in circle) {
+  console.log("Circle has a radius.");
+}
+```
+
 ### Challenge. StopWatch
 
 ```js
