@@ -220,6 +220,18 @@ increment(number);
 console.log(number); // ?
 ```
 
+### Adding/Removing Property
+
+```js
+const circle = new Circle(10);
+circle.location = { x: 1 };
+const propertyName = "location"; // or 'one-two'
+circle[propertyName] = { y: 2 };
+
+delete user.password;
+delete user["one-two-three"];
+```
+
 ### Challenge. StopWatch
 
 ```js
