@@ -270,18 +270,54 @@ Scope (temporary, die after) vs Closure (stay alive in memory).
 
 ```js
 function Circle(radius) {
+  // dont make it visible to outter
   let color = "red"; // private
   const findCenter = function () {}; // private
 
   this.radius = radius;
   this.draw = function () {
     let x, y; // closure
+    findCenter();
     console.log("draw");
   };
 }
 ```
 
-### Challenge. StopWatch
+### Getters/Setters
 
 ```js
+function Circle(radius) {
+  // dont make it visible to outter
+  let color = "red"; // private
+  const findCenter = function () {}; // private
+
+  this.radius = radius;
+
+  // now we can read (get) private property
+  // it will - color: (...) - computed property
+  Object.defineProperty(this, "color", {
+    get: function () {
+      return color;
+    },
+
+    // benefit of setter - VALIDATION!
+    set: function (value) {
+      if (!value) {
+        throw new Error("invalid color");
+      }
+
+      color = value;
+    },
+  });
+
+  this.draw = function () {
+    let x, y; // closure
+    findCenter();
+    console.log("draw");
+  };
+}
+
+const circle = new Circle(10);
 ```
+
+### Challenge. StopWatch
